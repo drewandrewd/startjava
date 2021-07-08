@@ -1,7 +1,7 @@
 public class MyFirstGame {
     public static void main(String[] args) {
         int randomNumber = (int) (Math.random() * 1000);
-        if ( (randomNumber / 10) == 100) {
+        if ((randomNumber / 10) == 100) {
             randomNumber = 100;
         } else {
             randomNumber /= 10;

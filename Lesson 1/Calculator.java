@@ -15,14 +15,15 @@ public class Calculator {
         } else if (sign.equals("/")) {
             System.out.println(a / b);
         } else if (sign.equals("^")) {
+            int c = a;
             if (b >= 2) {
                 for (int i = 2; i <= b; i++) {
-                    a *= a;
+                    c = c * a;
                 }
             } else if (b == 0) {
-                a = 1;
+                c = 1;
             }
-            System.out.println(a);
+            System.out.println(c);
         } else if (sign.equals("%")) {
             System.out.println(a % b);
         }
