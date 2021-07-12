@@ -15,13 +15,13 @@ public class Calculator {
         } else if (sign.equals("/")) {
             System.out.println(a / b);
         } else if (sign.equals("^")) {
-            int c = a;
+            int c = 1;
             if (b >= 2) {
                 for (int i = 2; i <= b; i++) {
-                    c = c * a;
+                    c *= a;
                 }
-            } else if (b == 0) {
-                c = 1;
+            } else if (b == 1) {
+                c = a;
             }
             System.out.println(c);
         } else if (sign.equals("%")) {
