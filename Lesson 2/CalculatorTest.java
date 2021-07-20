@@ -15,7 +15,7 @@ public class CalculatorTest {
             System.out.println(calculator.calc(calculator.getA(), calculator.getSign(), calculator.getB()));
             boolean wrongAnswer = true;
             while (wrongAnswer) {
-                System.out.print("Хотите продолжить игру? [yes/no]: ");
+                System.out.print("Хотите продолжить вычисления? [yes/no]: ");
                 calculator.setYesNo(scanner.next());
                 if (calculator.getYesNo().equals("yes")) {
                     answer = true;
