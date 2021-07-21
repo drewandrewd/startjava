@@ -14,8 +14,7 @@ public class GuessNumber {
         this.playerTwo = playerTwo;
     }
 
-    public boolean playNumber(int number, int randomNumber) {
-
+    public boolean compareNumber(int number, int randomNumber) {
         if (number > randomNumber) {
             System.out.println("Данное число больше того, что загадал компьютер");
             result = false;
@@ -31,15 +30,15 @@ public class GuessNumber {
 
     public void playGame() {
         Scanner scanner = new Scanner(System.in);
-        randomNumber = (int) (Math.random() * 10);
+        randomNumber = (int) (Math.random() * 101);
         do {
             System.out.print(playerOne.getPlayerName() + ": ");
-            resultOne = playNumber(scanner.nextInt(), randomNumber);
+            resultOne = compareNumber(scanner.nextInt(), randomNumber);
             if (resultOne == true) {
                 break;
             } else {
                 System.out.print(playerTwo.getPlayerName() + ": ");
-                resultTwo = playNumber(scanner.nextInt(), randomNumber);
+                resultTwo = compareNumber(scanner.nextInt(), randomNumber);
             }
         } while (!resultOne && !resultTwo);
     }
