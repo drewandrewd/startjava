@@ -50,7 +50,6 @@ public class Calculator {
                 result = a % b;
                 break;
         }
-
         return result;
     }
 }
