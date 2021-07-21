@@ -1,14 +1,18 @@
-public class Player extends GuessNumber{
+public class Player {
 
-    private String playerName;
+    private String name;
     private int number;
 
+    public Player(String playerName) {
+        this.name = playerName;
+    }
+
     public String getPlayerName() {
-        return playerName;
+        return name;
     }
 
     public void setPlayerName(String playerName) {
-        this.playerName = playerName;
+        this.name = playerName;
     }
 
     public int getNumber() {
@@ -17,8 +21,5 @@ public class Player extends GuessNumber{
 
     public void setNumber(int number) {
         this.number = number;
-    }
-    public Player(String playerName) {
-        this.playerName = playerName;
     }
 }
