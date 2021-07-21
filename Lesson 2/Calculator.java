@@ -3,7 +3,6 @@ public class Calculator {
     private int a;
     private String sign;
     private int b;
-    private String yesNo;
 
     public int getA() {
         return a;
@@ -29,36 +28,29 @@ public class Calculator {
         this.b = b;
     }
 
-    public String getYesNo() {
-        return yesNo;
-    }
-
-    public void setYesNo(String yesNo) {
-        this.yesNo = yesNo;
-    }
-
-    public int calc(int a, String sign, int b) {
+    public int calc() {
         int result = 0;
         switch (sign) {
             case "+":
                 result = a + b;
                 break;
             case "-":
-                result =  a - b;
+                result = a - b;
                 break;
             case "*":
-                result =  a * b;
+                result = a * b;
                 break;
             case "/":
-                result =   a / b;
+                result = a / b;
                 break;
             case "^":
-                result =   (int) Math.pow(a, b);
+                result = (int) Math.pow(a, b);
                 break;
             case "%":
-                result =   a % b;
+                result = a % b;
                 break;
         }
+
         return result;
     }
 }
