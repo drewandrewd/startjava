@@ -4,24 +4,12 @@ public class Calculator {
     private String sign;
     private int b;
 
-    public int getA() {
-        return a;
-    }
-
     public void setA(int a) {
         this.a = a;
     }
 
-    public String getSign() {
-        return sign;
-    }
-
     public void setSign(String sign) {
         this.sign = sign;
-    }
-
-    public int getB() {
-        return b;
     }
 
     public void setB(int b) {
@@ -50,6 +38,7 @@ public class Calculator {
                 result = a % b;
                 break;
         }
+
         return result;
     }
 }

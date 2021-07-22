@@ -2,46 +2,44 @@ import java.util.Scanner;
 
 public class GuessNumber {
 
-    boolean result;
-    boolean resultOne = false;
-    boolean resultTwo = false;
-    int randomNumber;
-    Player playerOne;
-    Player playerTwo;
+    private boolean result;
+    private boolean resultOne = false;
+    private boolean resultTwo = false;
+    private int randomNumber;
+    private Player playerOne;
+    private Player playerTwo;
 
     public GuessNumber(Player playerOne, Player playerTwo) {
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
     }
 
-    public boolean compareNumber(int number, int randomNumber) {
-        if (number > randomNumber) {
-            System.out.println("Данное число больше того, что загадал компьютер");
-            result = false;
-        } else if (number < randomNumber) {
-            System.out.println("Данное число меньше того, что загадал компьютер");
-            result = false;
-        } else if (number == randomNumber) {
+    public void play () {
+        Scanner scanner = new Scanner(System.in);
+        randomNumber = (int) (Math.random() * 10);
+        do {
+            System.out.print(playerOne.getName() + ", ведите число: ");
+            resultOne = compareNumber(scanner.nextInt());
+            if (resultOne == true) {
+                break;
+            }
+            System.out.print(playerTwo.getName() + ", введите число: ");
+            resultTwo = compareNumber(scanner.nextInt());
+        } while (!resultOne && !resultTwo);;
+    }
+
+    private boolean compareNumber(int number) {
+        if (number == randomNumber) {
             System.out.println("Поздравляю, число угадано!");
             result = true;
+        } else {
+            if (number > randomNumber) {
+                System.out.println("Данное число больше того, что загадал компьютер");
+            } else {
+                System.out.println("Данное число меньше того, что загадал компьютер");
+            }
+            result = false;
         }
         return result;
     }
-
-    public void playGame() {
-        Scanner scanner = new Scanner(System.in);
-        randomNumber = (int) (Math.random() * 101);
-        do {
-            System.out.print(playerOne.getPlayerName() + ": ");
-            resultOne = compareNumber(scanner.nextInt(), randomNumber);
-            if (resultOne == true) {
-                break;
-            } else {
-                System.out.print(playerTwo.getPlayerName() + ": ");
-                resultTwo = compareNumber(scanner.nextInt(), randomNumber);
-            }
-        } while (!resultOne && !resultTwo);
-    }
-
-
 }
