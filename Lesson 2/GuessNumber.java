@@ -14,18 +14,18 @@ public class GuessNumber {
         this.playerTwo = playerTwo;
     }
 
-    public void play () {
+    public void play() {
         Scanner scanner = new Scanner(System.in);
-        randomNumber = (int) (Math.random() * 10);
+        randomNumber = (int) (Math.random() * 101);
         do {
             System.out.print(playerOne.getName() + ", ведите число: ");
             resultOne = compareNumber(scanner.nextInt());
-            if (resultOne == true) {
+            if (resultOne) {
                 break;
             }
             System.out.print(playerTwo.getName() + ", введите число: ");
             resultTwo = compareNumber(scanner.nextInt());
-        } while (!resultOne && !resultTwo);;
+        } while (!resultTwo);
     }
 
     private boolean compareNumber(int number) {
