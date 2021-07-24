@@ -25,20 +25,18 @@ public class GuessNumber {
             }
             System.out.print(playerTwo.getName() + ", введите число: ");
             resultTwo = compareNumber(scanner.nextInt());
-        } while (!resultTwo);
+        } while (!compareNumber(scanner.nextInt()));
     }
 
     private boolean compareNumber(int number) {
+        result = false;
         if (number == randomNumber) {
             System.out.println("Поздравляю, число угадано!");
             result = true;
+        } else if (number > randomNumber) {
+            System.out.println("Данное число больше того, что загадал компьютер");
         } else {
-            if (number > randomNumber) {
-                System.out.println("Данное число больше того, что загадал компьютер");
-            } else {
-                System.out.println("Данное число меньше того, что загадал компьютер");
-            }
-            result = false;
+            System.out.println("Данное число меньше того, что загадал компьютер");
         }
         return result;
     }
