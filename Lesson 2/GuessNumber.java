@@ -13,7 +13,7 @@ public class GuessNumber {
 
     public void play() {
         boolean comparisonResult;
-        randomNumber = (int) (Math.random() * 10);
+        randomNumber = (int) (Math.random() * 101);
         do {
             System.out.print(playerOne.getName() + ", ведите число: ");
             comparisonResult = compareNumbers(getNumbers());
