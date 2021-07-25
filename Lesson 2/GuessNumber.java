@@ -2,9 +2,6 @@ import java.util.Scanner;
 
 public class GuessNumber {
 
-    private boolean result;
-    private boolean resultOne = false;
-    private boolean resultTwo = false;
     private int randomNumber;
     private Player playerOne;
     private Player playerTwo;
@@ -15,29 +12,34 @@ public class GuessNumber {
     }
 
     public void play() {
-        Scanner scanner = new Scanner(System.in);
-        randomNumber = (int) (Math.random() * 101);
+        boolean comparisonResult;
+        randomNumber = (int) (Math.random() * 10);
         do {
             System.out.print(playerOne.getName() + ", ведите число: ");
-            resultOne = compareNumber(scanner.nextInt());
-            if (resultOne) {
+            comparisonResult = compareNumbers(getNumbers());
+            if (comparisonResult) {
                 break;
             }
             System.out.print(playerTwo.getName() + ", введите число: ");
-            resultTwo = compareNumber(scanner.nextInt());
-        } while (!compareNumber(scanner.nextInt()));
+            comparisonResult = compareNumbers(getNumbers());
+        } while (!comparisonResult);
     }
 
-    private boolean compareNumber(int number) {
-        result = false;
+    private boolean compareNumbers(int number) {
         if (number == randomNumber) {
             System.out.println("Поздравляю, число угадано!");
-            result = true;
+            return true;
         } else if (number > randomNumber) {
             System.out.println("Данное число больше того, что загадал компьютер");
+            return false;
         } else {
             System.out.println("Данное число меньше того, что загадал компьютер");
+            return false;
         }
-        return result;
+    }
+
+    private int getNumbers() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextInt();
     }
 }
