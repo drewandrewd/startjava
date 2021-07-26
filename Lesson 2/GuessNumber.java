@@ -13,16 +13,20 @@ public class GuessNumber {
 
     public void play() {
         boolean comparisonResult;
-        randomNumber = (int) (Math.random() * 10);
+        randomNumber = (int) (Math.random() * 101);
         do {
-            System.out.print(playerOne.getName() + ", ведите число: ");
-            comparisonResult = compareNumbers(getNumbers());
+            comparisonResult = compareNumbers(inputNumber(playerOne));
             if (comparisonResult) {
                 break;
             }
-            System.out.print(playerTwo.getName() + ", введите число: ");
-            comparisonResult = compareNumbers(getNumbers());
+            comparisonResult = compareNumbers(inputNumber(playerTwo));
         } while (!comparisonResult);
+    }
+
+    private int inputNumber(Player player) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print(player.getName() + ", введите число: ");
+        return scanner.nextInt();
     }
 
     private boolean compareNumbers(int number) {
@@ -31,15 +35,9 @@ public class GuessNumber {
             return true;
         } else if (number > randomNumber) {
             System.out.println("Данное число больше того, что загадал компьютер");
-            return false;
         } else {
             System.out.println("Данное число меньше того, что загадал компьютер");
-            return false;
         }
-    }
-
-    private int getNumbers() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextInt();
+        return false;
     }
 }
